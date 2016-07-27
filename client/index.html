@@ -5,6 +5,8 @@
 	<title>Contactbook</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://use.fontawesome.com/c71156ccc0.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="scripts.js"></script>
 </head>
 <body>
 	<form class="container col-md-8">
@@ -39,6 +41,11 @@
 					type="text">
 			</div>
 		</fieldset>
+		<button class="btn btn-primary" id="save">Save</button>
 	</form>
+	<table class="col-md-4">
+		<thead id="contacts">
+		</thead>
+	</table>
 </body>
 </html>
