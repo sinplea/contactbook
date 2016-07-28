@@ -7,13 +7,13 @@ $(document).ready(function(){
 	var $message = $('message');
 
 	function addContact(contact){
-		var html =	'<tr>' + 
-					'<th>' + contact.name + '</th>' +
-					'<th>' + contact.phone + '</th>' +
-					'<th><i class="fa fa-pencil" aria-hidden="true"></i></th>' +
-					'<th><i class="fa fa-trash-o" aria-hidden="true"></i></th>' + 
-					'<th><i class="fa fa-sort-desc" aria-hidden="true"></i></th>' +
-					'</tr>'
+		var html = "<tr>" +
+			"<th>" + contact.name + "</th>" +
+			"<th>" + contact.phone + "</th>" +
+			'<th><i class="fa fa-pencil" aria-hidden="true"></i></th>' +
+			'<th><i class="fa fa-trash-o" aria-hidden="true"></i></th>' +
+			'<th><i class="fa fa-sort-desc" aria-hidden="true"></i></th>' +
+			"</tr>";
 		$contacts.append(html);	}
 
 	$.ajax({
@@ -21,9 +21,9 @@ $(document).ready(function(){
 		url:'/api/contacts',
 		success:function(contacts){
 			$.each(contacts, function(i, contact){
-				addContact(contact);			
+				addContact(contact);
 			})
-		}, 
+		},
 		error:function(){
 			alert('Error loading contacts.')
 		}
@@ -34,7 +34,7 @@ $(document).ready(function(){
 			name: $name.val(),
 			phone: $phone.val(),
 			email: $email.val(),
-			message: $message.val()		
+			message: $message.val()
 		}
 
 		$.ajax({
