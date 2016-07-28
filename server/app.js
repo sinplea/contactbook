@@ -3,7 +3,6 @@ var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var path = require('path');
-var exphbs = require('express-handlebars');
 
 var Contact = require('./models/contact.model');
 var db = 'mongodb://localhost/contactbook';
@@ -18,15 +17,6 @@ mongoose.connect(db);
 
 app.set('views', appRoot + '/client/views')
 
-app.engine('.hbs', exphbs({
-	defaultLayout: 'index',
-  extname: '.hbs',
-  layoutsDir:'client/views',
-  partialsDir:'client/views'
-}));
-
-app.set('view engine', '.hbs');
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended:true
@@ -35,7 +25,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, '../client')));
 
 app.get('/', function(req, res){
-	res.render('index');
+	res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
 	console.log('Welcome to contactbook');
 })
 
@@ -70,9 +60,31 @@ app.post('/api/contacts', function(req, res){
 app.delete('/api/contacts/:id', function(req, res){
 	Contact.findOneAndRemove({
 		_id:req.params.id
-	}, function(err, res){
+	}, function(err, result){
 		if(err){
 			console.log('Error deleting contact');
+		}else{
+			res.send(result)
+		}
+	})
+})
+
+app.put('/api/contacts/:id', function(req, res){
+	Contact.findOneAndUpdate({
+		_id:req.params.id
+	},
+	{$set:{
+		name:req.body.name,
+		phone:req.body.phone,
+		email:req.body.email,
+		message:req.body.message,
+	}},
+	{upsert:true},
+	function(err, res){
+		if(err){
+			console.log('error');
+		}else{
+			console.log(res);
 		}
 	})
 })
