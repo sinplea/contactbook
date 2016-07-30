@@ -1,2 +1,23 @@
-.drop-down-info {
+ul {
+  list-style-type: none;
+  padding: 0; }
+
+footer {
+  background-color: #f3f3f3;
+  padding: 1em 0; }
+
+.fa-check:hover,
+.fa-pencil:hover,
+.fa-sort-desc:hover,
+.fa-sort-asc:hover {
+  color: lightgreen; }
+
+.fa-trash-o:hover,
+.fa-times:hover {
+  color: red; }
+
+.hidden {
   display: none; }
+
+.header {
+  text-align: center; }

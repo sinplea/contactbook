@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contactbook</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../stylesheets/css/bootstrap.css">
     <script src="https://use.fontawesome.com/c71156ccc0.js"></script>
     <link rel="stylesheet" href="../stylesheets/css/styles.css" media="screen" title="no title" charset="utf-8">
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -12,9 +12,13 @@
     <script src="../scripts/scripts.js"></script>
   </head>
   <body>
+    <div class="container col-md-12 header">
+      <h1>ContactBook</h1>
+      <h5>An Express 4, Mongoose, MongoDB App</h5>
+    </div>
     <form class="container col-md-6">
       <fieldset>
-        <legend>Create Contact</legend>
+        <legend class="title">Create Contact</legend>
         <div class="form-group">
           <label for="name">Name</label>
           <input id="name" type="text" class="form-control">
@@ -33,34 +37,69 @@
         </div>
       </fieldset>
       <button id="save" class="btn btn-primary">Save</button>
+
     </form>
 
     <template id="contactTemplate">
       <tr>
-        <th><span>{{name}}</span></th>
-        <th><span>{{phone}}</span></th>
-        <th><i data-id="{{_id}}" class="fa fa-pencil edit fa-lg" aria-hidden="true"></i></th>
-      	<th><i data-id="{{_id}}" class="fa fa-trash-o remove fa-lg" aria-hidden="true"></i></th>
-      	<th><i class="fa fa-sort-desc down fa-lg" aria-hidden="true"></i></th>
+        <th class="col-md-5">
+          <span class="name">{{name}}</span>
+        </th>
+        <th class="col-md-4">
+          <span class="phone">{{phone}}</span>
+        </th>
+        <th class="col-md-1 check">
+          <i data-id="{{_id}}" class="hidden crud-icon fa fa-check fa-lg" aria-hidden="true"></i>
+        </th>
+        <th class="col-md-1">
+          <i data-id="{{_id}}" class="crud-icon fa fa-pencil edit fa-lg" aria-hidden="true"></i>
+        </th>
+      	<th class="col-md-1">
+          <i data-id="{{_id}}" class="crud-icon fa fa-trash-o remove fa-lg" aria-hidden="true"></i>
+        </th>
+      	<th class="col-md-1">
+          <i class="crud-icon fa fa-sort-desc down fa-lg" aria-hidden="true"></i>
+        </th>
       </tr>
-      <tr data-id="{{_id}}" class="drop-down-info">
-        <th>
+      <tr data-id="{{_id}}" class="hidden drop-down-info">
+        <th class="col-md-4">
           <ul>
-            <li><span>{{name}}</span></li>
-            <li><span>{{phone}}</span></li>
-            <li><span>{{email}}</span></li>
-            <li><span>{{message}}</span></li>
-            <li><span>{{_id}}</span></li>
+            <li>
+              <span><strong>Name: </strong></span>
+              <span class="name">{{name}}</span>
+            </li>
+            <li>
+              <span><strong>Phone: </strong></span>
+              <span class="phone">{{phone}}</span>
+            </li>
+            <li>
+              <span><strong>Email: </strong></span>
+              <span class="email">{{email}}</span>
+            </li>
+            <li>
+              <span><strong>Message: </strong></span>
+              <span class="message">{{message}}</span>
+            </li>
+            <li>
+              <span><strong>ID: </strong></span>
+              <span class="id">{{_id}}</span>
+            </li>
           </ul>
         </th>
       </tr>
     </template>
 
     <div class="container col-md-6">
+      <h4>Contacts</h4>
       <table class="table">
         <thead id="contacts"></thead>
       </table>
     </div>
 
+    <footer class="footer navbar-fixed-bottom">
+      <div class="container">
+        <a href="https://github.com/sinplea">Follow me on github.</a>
+      </div>
+    </footer>
   </body>
 </html>

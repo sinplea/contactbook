@@ -11,8 +11,6 @@ var appRoot = require('app-root-path');
 
 var PORT = 8080;
 
-// layoutsDir = "client/views";
-
 mongoose.connect(db);
 
 app.set('views', appRoot + '/client/views')
@@ -80,11 +78,11 @@ app.put('/api/contacts/:id', function(req, res){
 		message:req.body.message,
 	}},
 	{upsert:true},
-	function(err, res){
+	function(err, result){
 		if(err){
 			console.log('error');
 		}else{
-			console.log(res);
+			res.send(result);
 		}
 	})
 })
