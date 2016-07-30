@@ -2,7 +2,7 @@
 An Express 4, Mongoose, MongoDB CRUD Application
 
 ## Why
-This contactbook is nothing speacial. It was made a learning project and works like a regular contactbook, like one you might find on your phone. The purpose of this project was to provide myself with practice in utilizing both a backend and a frontend. JQuery AJAX handles requests on the frontend and is able to talk to the Express 4 Mongoose restful api on the backend. For studying purpose, you can see there is both a restful api and an application ready to handle crud operations, so if you're in need of some guidence on where to start, here you go.
+This contactbook is nothing special. It was made a learning project and works like a regular contactbook, like one you might find on your phone. The purpose of this project was to provide myself with practice in utilizing both a backend and a frontend. JQuery AJAX handles requests on the frontend and is able to talk to the Express 4 Mongoose restful api on the backend. For studying purpose, you can see there is both a restful api and an application ready to handle crud operations, so if you're in need of some guidance on where to start, here you go.
 
 ## Using locally.
 
@@ -15,7 +15,7 @@ To use this app all of the following must be installed:
 All can be downloaded from the links provided.
 
 ### Opening the project
-Begin by opening an instance of mongodb in your terminal. 
+Begin by opening an instance of mongodb in your terminal.
 ```
 mongod
 ```
@@ -67,8 +67,5 @@ This app is fundamentally simple, but is a decent example of creating a restful 
 * Combine gulp task
 * Minify code and setup build application
 * Add better styling
-* Deploy to heroku 
+* Deploy to heroku
 * Possibly add validation and testing
-
-
-
