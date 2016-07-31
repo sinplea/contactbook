@@ -65,6 +65,7 @@ This app is fundamentally simple, but is a decent example of creating a restful 
 ##TODO
 * ~~Disable crud applications for other contacts when a contact is already being edited. __(Important)__~~
 * Combine gulp task
+* Refactor code
 * Minify code and setup build application
 * Add better styling
 * Deploy to heroku
