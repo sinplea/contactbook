@@ -83,10 +83,14 @@ $(document).ready(function(){
 	// Fills form with contact info
 	$contacts.delegate('.fa-pencil', 'click', function(){
 		var $contactsTh = $(this).parent().parent().next().children();
+		var $clickableIcons = $(this).parent().parent().find('i');
+		var $allIcons = $(this).parent().parent().parent().find('i');
 		var $checkIcon = $(this).parent().prev().find('i');
 
 		$(this).removeClass('fa-pencil').addClass('fa-times');
 		$title.html('Edit Contact');
+
+		$clickableIcons.addClass('active')
 
 		$name.val( $contactsTh.find('span.name').html());
 		$phone.val( $contactsTh.find('span.phone').html());
@@ -96,18 +100,23 @@ $(document).ready(function(){
 		$saveButton.addClass('hidden');
 		$checkIcon.removeClass('hidden');
 
+		$allIcons.not($clickableIcons).addClass('hidden');
+
 	})
 
 	// Clears form input fields
 	// Resets form to original state
 	$contacts.delegate('.fa-times', 'click', function(){
 		var $checkIcon = $(this).parent().prev().find('i');
+		var $allIcons = $(this).parent().parent().parent().find('i');
 
 		$(this).removeClass('fa-times').addClass('fa-pencil');
 
 		$title.html('Create Contact');
 
 		clearForm();
+
+		$allIcons.not('.fa-check').removeClass('hidden');
 
 		$saveButton.removeClass('hidden');
 		$checkIcon.addClass('hidden');
@@ -118,7 +127,7 @@ $(document).ready(function(){
 	$contacts.delegate('.fa-check', 'click', function(){
 		var $tr = $(this).parent().parent();
 		var $droptr = $(this).parent().parent().next();
-
+		var $allIcons = $(this).parent().parent().parent().find('i');
 		var $checkIcon = $(this);
 		var $closeIcon = $(this).parent().next().find('i');
 
@@ -147,6 +156,8 @@ $(document).ready(function(){
 				$tr.find('span.phone').html(contact.phone);
 
 				clearForm();
+
+				$allIcons.not('.fa-check').removeClass('hidden');
 
 				$checkIcon.addClass('hidden');
 
