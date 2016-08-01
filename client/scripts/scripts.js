@@ -31,9 +31,6 @@ $(document).ready(function(){
 			$.each(contacts, function(i, contact){
 				addContact(contact);
 			})
-		},
-		error:function(){
-			alert('Error loading contacts.')
 		}
 	})
 
