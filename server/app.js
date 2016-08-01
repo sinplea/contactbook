@@ -1,15 +1,16 @@
+require('dotenv').config();
+
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var path = require('path');
-
-var Contact = require('./models/contact.model');
-var db = 'mongodb://localhost/contactbook';
-
 var appRoot = require('app-root-path');
 
-var PORT = 8080;
+var Contact = require('./models/contact.model');
+
+var db = process.env.DB + '/contactbook'
+var PORT = process.env.PORT || 8080;
 
 mongoose.connect(db);
 
@@ -24,7 +25,6 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 app.get('/', function(req, res){
 	res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
-	console.log('Welcome to contactbook');
 })
 
 app.get('/api/contacts', function(req, res){
