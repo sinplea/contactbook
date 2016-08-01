@@ -9,7 +9,7 @@ var appRoot = require('app-root-path');
 
 var Contact = require('./models/contact.model');
 
-var db = process.env.DB || 'mongodb://localhost/contactbook';
+var db = process.env.DB + '/contactbook';
 var PORT = process.env.PORT || 8080;
 
 mongoose.connect(db);
