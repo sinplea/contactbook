@@ -51,7 +51,7 @@ $(document).ready(function(){
 				addContact(newContact);
 			},
 			error:function(){
-				alert('Error saving contact.');
+				console.log('Error posting contact. If this is the first time the database has been created, everything is working fine and this message will not pop up again');
 			}
 		})
 	})
