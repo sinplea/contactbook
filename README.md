@@ -41,7 +41,7 @@ var PORT = process.env.PORT || 8080; // You can change 8080
 ## How it works
 If you take some time to read through the app.js server file, you will notice:
 ```javascript
-var db = process.env.DB + '/contactbook';
+var db = process.env.DB || 'mongodb://localhost:27017/contactbook';
 ```
 This line uses a dotenv variable declared in the .env file and connects to a local mongodb instance while creating a database for contactbook. **The path can be changed to anything you like. (e.g. var db = process.env.DB + '/test';)**
 
